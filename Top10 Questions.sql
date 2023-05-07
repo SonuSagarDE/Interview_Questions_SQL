@@ -12,4 +12,6 @@ rank() over(partition by dept_name order by salary desc) as rnk,
 dense_rank() over(partition by dept_name order by salary desc) as dense_rnk,
 row_number() over(partition by dept_name order by salary desc) as rn
 from employee e;
-
+## Q5 Employee which are not present in Department table
+-- Left join Emp table with department table based on dep_id and filter where dep_id is Null
+##
