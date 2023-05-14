@@ -23,6 +23,11 @@ where id in (
 Select max(id) as id
 from cars
 group by model,brand
-having count(1)>1)
+having count(1)>1);
 
-## Using Self join
+## Using Self join--
+delete from cars where id in (
+select c2.id from cars c1 
+	inner join cars c2 
+		on c1.model=c2.model and c1.brand=c2.brand
+			and c1.id<c2.id)
