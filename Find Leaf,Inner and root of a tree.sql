@@ -50,8 +50,14 @@ insert into tree values(3,1);
 insert into tree values(4,2);
 insert into tree values(5,2);
 
+## Solution
 
-
+Select id,
+Case when p_id is Null then 'Root' 
+	when p_id is not null and id in (select distinct p_id from tree) then 'Inner'
+    else 'Leaf'
+	end as type
+from tree;
 
 
 
